@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Manager</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen p-6">
+  <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Student Manager</h1>
+
+  <!-- Form -->
+  <form action="/addData" method="post" class="flex flex-col sm:flex-row justify-center gap-4 mb-10">
+    <input type="text" placeholder="Enter name" name="name" required
+      class="px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none w-full sm:w-1/4">
+    <input type="number" placeholder="Enter age" name="age" required
+      class="px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none w-full sm:w-1/4">
+    <button type="submit"
+      class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition w-full sm:w-auto">Submit</button>
+  </form>
+
+  <!-- Table -->
+  <div class="overflow-x-auto">
+    <table class="w-full max-w-4xl mx-auto bg-white border border-gray-200 rounded-lg shadow-lg">
+      <thead class="bg-blue-600 text-white">
+        <tr>
+          <th class="py-3 px-4 text-left">Id</th>
+          <th class="py-3 px-4 text-left">Name</th>
+          <th class="py-3 px-4 text-left">Age</th>
+          <th class="py-3 px-4 text-center" colspan="2">Action</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200">
+        <% students.map((e,i)=>{ %>
+        <tr class="hover:bg-gray-50">
+          <td class="py-3 px-4"><%= e.id %></td>
+          <td class="py-3 px-4"><%= e.name %></td>
+          <td class="py-3 px-4"><%= e.age %></td>
+          <td class="py-3 px-4 text-center">
+            <a href="/deleteData/<%= e.id %>"
+              class="px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">Delete</a>
+          </td>
+          <td class="py-3 px-4 text-center">
+            <a href="/editData?id=<%= e.id %>"
+              class="px-3 py-1 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">Edit</a>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+
+</html>
