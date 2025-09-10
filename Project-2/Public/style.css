@@ -1,0 +1,24 @@
+.h1
+{
+    display: flex;
+    border:1px solid black;
+    width:55%;
+}
+.b
+{
+    background-color: black;
+    height:75px;
+    width:118px;
+    text-align: center;
+    font-size:50px;
+    text-shadow:2px 1px white;
+}
+.w
+{
+    background-color:white;
+    height:75px;
+    width:118px;
+    text-align: center;
+    font-size:50px;
+    text-shadow:1px white;
+}
