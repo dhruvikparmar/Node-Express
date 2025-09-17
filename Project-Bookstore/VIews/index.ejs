@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Management</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f5f6fa;
+      color: #2c3e50;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #0984e3;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .btn {
+      padding: 10px 18px;
+      font-size: 14px;
+      background: white;
+      color: #0984e3;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: #74b9ff;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* Content */
+    .content {
+      padding: 30px;
+    }
+
+    .content h2 {
+      margin-bottom: 20px;
+      color: #2d3436;
+    }
+
+    /* Book Grid */
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* exactly 4 per row */
+      gap: 20px;
+    }
+
+    /* Book Card */
+    .book-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.3s;
+      height: 230px; /* fixed square height */
+    }
+
+    .book-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    .book-header {
+      background: linear-gradient(135deg, #6c5ce7, #0984e3);
+      color: white;
+      padding: 12px 15px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: left; /* align left */
+    }
+
+    .book-body {
+      padding: 12px 15px;
+      flex-grow: 1;
+      text-align: left; /* align left */
+    }
+
+    .book-body p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #636e72;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: flex-start; /* align left */
+      gap: 10px;
+      padding: 12px 15px;
+      border-top: 1px solid #ecf0f1;
+      background: #fafafa;
+    }
+
+    .actions a {
+      padding: 6px 12px;
+      border-radius: 5px;
+      font-size: 13px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .edit {
+      background: #ffeaa7;
+      color: #2d3436;
+    }
+
+    .edit:hover {
+      background: #fdcb6e;
+    }
+
+    .delete {
+      background: #fab1a0;
+      color: #2d3436;
+    }
+
+    .delete:hover {
+      background: #e17055;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <h1>📚 Book Management</h1>
+    <a href="/addbook" class="btn">➕ Add New Book</a>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <h2>All Books</h2>
+
+    <div class="book-grid">
+      <% data.map((e,i)=>{ %>
+      <div class="book-card">
+        <div class="book-header"><%= e.title %></div>
+        <div class="book-body">
+          <p><strong>Author:</strong> <%= e.name %></p>
+          <p><strong>Qty:</strong> <%= e.quntity %></p>
+          <p><strong>Price:</strong> $<%= e.price %></p>
+        </div>
+        <div class="actions">
+          <a href="editBook?id=<%= e.id %>" class="edit">✏️ Edit</a>
+          <a href="deleteBook?id=<%= e.id %>" class="delete">🗑️ Delete</a>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</body>
+
+</html>

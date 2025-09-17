@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Management</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #74b9ff, #a29bfe);
+      color: #2f3640;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #0984e3;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    /* Form Card */
+    .form-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 20px;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 450px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0984e3;
+      font-size: 24px;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 12px;
+      font-size: 15px;
+      margin: 8px 0;
+      border: 1px solid #dcdde1;
+      border-radius: 8px;
+      outline: none;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+
+    .form-container input:focus {
+      border: 1px solid #0984e3;
+      box-shadow: 0 0 6px rgba(9, 132, 227, 0.4);
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      background: #0984e3;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 15px;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .form-container button:hover {
+      background: #74b9ff;
+      transform: scale(1.02);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <h1>📚 Book Management</h1>
+  </div>
+
+  <!-- Form -->
+  <div class="form-wrapper">
+    <div class="form-container">
+      <h2>➕ Add New Book</h2>
+      <form method="post" action="/addBook">
+        <input type="text" name="title" placeholder="Enter Book Title.." required />
+        <input type="text" name="name" placeholder="Enter Author Name.." required />
+        <input type="number" name="quntity" placeholder="Enter Quantity.." required />
+        <input type="number" name="price" placeholder="Enter Price.." required />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
